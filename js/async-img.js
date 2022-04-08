@@ -32,4 +32,20 @@
             $dropdown.parentElement.classList.toggle("is-active");
         });
     });
+
+    let $vidoes = document.querySelectorAll("video");
+    $vidoes.forEach(($video) => {
+
+        $video.addEventListener("webkitbeginfullscreen", () => {
+
+            alert("fullscreen start");
+
+        }, false);
+
+        $video.addEventListener("webkitendfullscreen", () => {
+
+            alert("fullscreen end");
+
+        }, false);
+    });
 })();
