@@ -33,15 +33,12 @@
         });
     });
 
-    let $vidoes = document.querySelectorAll("video");
-    $vidoes.forEach(($video) => {
-        if (typeof($video.webkitEnterFullscreen) != "undefined") {
-            // This is for Android Stock.
-            $video.addEventListener("touchstart", () => {
-                alert("wtf");
-                $video.play();
-                $video.webkitEnterFullscreen();
-            });
-        }
+    let $youtubeExpose = document.querySelectorAll("[data-youtube-uMP2tUkQ8WM]");
+    $youtubeExpose.forEach(($youtube) => {
+        $youtube.innerHTML = `
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uMP2tUkQ8WM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>
+        Preview of the tool in use during development of the game
+        <a aria-label='Tension' href='tension.html'>Tension</a><span>.</span></p>`;
     });
 })();
