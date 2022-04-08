@@ -1,0 +1,234 @@
+@media screen and (min-width: 1024px)
+{
+  .n-navbar-item-is-active::after {
+    content: "";
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0.5em;
+    width: calc(100% - 1em);
+    height: 100%;
+    border-bottom: 3px solid currentColor;
+  }
+  .n-other-projects-link {
+    position: absolute;
+    top: -3em;
+  }
+  .n-other-projects-link-bottom {
+    position: absolute;
+    bottom: -3em;
+  }
+}
+
+.n-navbar-svg {
+  width: 5em;
+}
+
+.n-fixed-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image:
+    url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Frock-pool-background-1.jpg&f=1&nofb=1);
+  background-position: center;
+  background-size: cover;
+  z-index: -5;
+  
+}
+
+.n-navbar-image-figure {
+  min-width: 64px;
+  box-sizing: content-box;
+  /*margin-right: 1em;*/
+}
+.n-navbar-image {
+  max-height: auto !important;
+  width: 64px;
+  height: 64px;
+  background-image: url(https://www.thegameassembly.com/wp-content/uploads/2020/09/sp20jesperlundgren.jpg);
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 2px 13px -5px #000000;
+}
+
+.n-is-rounded {
+  border-radius: 100%;
+}
+
+.n-inline,
+.n-inline-heading {
+  display: inline;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+/* CPP highlighter */
+.cpp {
+  font-family: 'Cascadia Code', monospace;
+  font-family: 'Cascadia Code', 'Cascadia Mono', 'Lucida Console', 'Courier New', monospace;
+  font-size: 0.9em;
+  color:#abb2bf;
+  background:#282c34;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+.cpp-keyword { color: #C675BA; }
+.cpp-var { color: #7EDBFE; }
+.cpp-macro { color: #AFB7FF; }
+.cpp-string { color: #98C273; }
+.cpp-class { color: #4EC590; }
+.cpp-enum { color: #A4D6A3; }
+.cpp-method { color: #EEF2AE; }
+.cpp-number { color: #D19A66; }
+
+
+/* Table of Content */
+.n-wiki-border {
+  border: 1px solid #d3d3d3;
+}
+.n-wiki-content {
+  background-color: #f5f5f5;
+  padding: 0.8em;
+  display: inline-block;
+  text-align: left;
+}
+.n-toc {
+  margin-top: 0.6em;
+  padding: 0.5em 0.8em;
+  display: inline-block;
+}
+.n-toc ol {
+  counter-reset: toc-item;
+  list-style-position: inside;
+  list-style-type: none;
+  margin: 0em;
+  margin-left: 1em;
+}
+.n-toc ol li {
+  display: block;
+}
+.n-toc ol li::before {
+  content: counters(toc-item, ".") " ";
+  color: hsl(0, 0%, 21%);
+  counter-increment: toc-item;
+}
+.n-bulletlist {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.n-small-image img,
+.n-thumbail a,
+.n-thumbail img {
+  width: auto;
+  height: 100%;
+}
+.n-small-image,
+.n-thumbail {
+  max-height: 24em;
+}
+
+[title] {
+  cursor: help;
+}
+
+#canvas-container {
+  width: 100%;
+  background-color: dodgerblue;
+  text-align: center;
+  /* border: 1px solid silver; */
+  box-sizing: content-box;
+}
+#canvas {
+  max-width: 800px;
+  width: 100%;
+}
+
+.no-border {
+  border: none;
+}
+
+abbr[title]:after
+{
+  content: " (" attr(title) ")";
+}
+@media (hover: hover) {
+  abbr[title]:after
+  {
+    content: "";
+  }
+}
+
+.anchor {
+  padding-top: 3.5em !important;
+  margin-top: -3.5em !important;
+}
+:target + * {
+  animation: anim-target-highlight 1s;
+}
+@keyframes anim-target-highlight {
+  from {
+    background-color: goldenrod;
+    box-shadow: 0 0 10px 5px goldenrod;
+    text-shadow: 0px 0px 5px blue;
+  }
+  to {
+    background-color: transparent;
+    box-shadow: 0 0 10px 5px transparent;
+  }
+}
+
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+#filler {
+  flex: 1 0 auto;
+}
+#footer {
+  flex-shrink: 0;
+}
+
+.justify-mobile-only {
+  text-align: justify;
+  text-justify: inter-word;
+  display: inline-block;
+}
+@media only screen and (min-width: 768px) {
+  .justify-mobile-only {
+    text-align: left;
+    display: inline;
+  }
+}
+
+#question-mark {
+  animation: rotating-question-mark 1s infinite;
+}
+@keyframes rotating-question-mark {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
+}
+
+.bring-to-top {
+  position: fixed;
+  font-size: 2em;
+  border-radius: 100%;
+  background-color: #282c34;
+  color: #f5f5f5;
+  display: table-cell;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+}

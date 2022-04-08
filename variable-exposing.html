@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<link crossorigin='anonymous' href='css/bulma.css' integrity='sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==' referrerpolicy='no-referrer' rel='stylesheet'>
+<link href='https://unicons.iconscout.com/release/v4.0.0/css/line.css' rel='stylesheet'>
+<link href='css/general.css' rel='stylesheet'>
+<!-- Html Meta Tags -->
+<title>Variable Exposing | Jesper Lundgren</title>
+<meta content='A tool that let users manipulate variables runtime.' name='description'>
+<!-- Facebook Meta Tags -->
+<meta content='https://noijig.net/variable-exposing.html' property='og:url'>
+<meta content='website' property='og:type'>
+<meta content='Variable Exposing | Jesper Lundgren' property='og:title'>
+<meta content='A tool that let users manipulate variables runtime.' property='og:description'>
+<meta content='https://noijig.net/img/thumbnail/variable-exposing.png' property='og:image'>
+<!-- Twitter Meta Tags -->
+<meta content='summary_large_image' name='twitter:card'>
+<meta content='noijig.net' property='twitter:domain'>
+<meta content='https://noijig.net/variable-exposing.html' property='twitter:url'>
+<meta content='Variable Exposing | Jesper Lundgren' name='twitter:title'>
+<meta content='A tool that let users manipulate variables runtime.' name='twitter:description'>
+<meta content='https://noijig.net/img/thumbnail/variable-exposing.png' name='twitter:image'>
+</head>
+
+<body class="has-navbar-fixed-top">
+<nav aria-label='main navigation' class='navbar is-fixed-top is-light invert-in-darkmode'>
+<div class='navbar-brand'>
+<a class='navbar-item' href='about.html' title='Click to read about me'>
+<!-- /.image.n-navbar-image-figure.mr-4 -->
+<!-- /    .n-navbar-image.n-is-rounded -->
+<div class='tile is-vertical has-text-left'>
+<div class='tile'>
+Jesper Lundgren
+</div>
+<div class='tile is-italic is-size-7'>
+Engine & Tools
+</div>
+</div>
+</a>
+<button aria-controls='navmenu' aria-expanded='false' aria-label='hamburger menu' class='navbar-burger' data-target='navmenu' style='height: auto'>
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class='navbar-menu' id='navmenu'>
+<nav aria-label='dropdown navigation' class='navbar-start'>
+<a class='navbar-item' href='index.html'>
+Home
+</a>
+<a class='navbar-item' href='about.html'>
+About
+</a>
+<div class='navbar-item has-dropdown is-hoverable'>
+<a class='n-navbar-item navbar-link is-arrowless' href='projects.html'>
+Projects
+</a>
+<div class='navbar-dropdown is-boxed'>
+<a class='has-text-weight-bold navbar-item' href='variable-exposing.html'>
+Variable Exposing
+</a>
+<a class='navbar-item' href='island-generator.html'>
+Island Generator
+</a>
+</div>
+</div>
+<noscript>
+<div class='notification is-warning'>
+This website will only show images if JavaScript is turned <strong>on</strong>
+</div>
+</noscript>
+</nav>
+<div class='navbar-end'>
+<a aria-label='Resume' class='navbar-item has-text-link' href='resume.pdf' target='_blank'>
+<span>
+Resume
+<i class='uil uil-external-link-alt'></i>
+</span>
+</a>
+<a aria-label='LinkedIn' class='navbar-item has-text-link' href='https://se.linkedin.com/in/jesper-lundgren-420?trk=people-guest_people_search-card' rel='noreferrer noopener' target='_blank'>
+<span>
+LinkedIn
+<i class='uil uil-external-link-alt'></i>
+</span>
+</a>
+</div>
+</div>
+</nav>
+
+<main id="filler" class="section is-medium invert-in-darkmode" aria-label="main content">
+<aside class="container">
+<div class='is-relative'>
+<a class='n-other-projects-link' href='projects.html'>
+<span class='icon'>
+<i class='uil uil-arrow-left'></i>
+</span>
+Other projects
+</a>
+<aside class='content'>
+<noscript>
+<div class='notification is-danger is-light'>
+This website will only show images if JavaScript is turned <strong>on</strong>
+</div>
+<div class='block'></div>
+</noscript>
+<h1 class='title is-2'>
+Variable Exposing
+</h1>
+<div class='n-wiki-content n-wiki-border is-hidden-tablet mb-1'>
+<video autoplay controls loop muted poster='img/project/expose/light_poster.jpg'>
+<source src='img/project/expose/light.mp4'>
+</video>
+<p>
+Preview of the tool in use during development of the game
+<a href='tension.html'>Tension</a><span>.</span></p>
+</div>
+<div class='n-wiki-content n-wiki-border is-pulled-right is-hidden-mobile ml-3' style='width: 50%'>
+<video autoplay controls loop muted poster='img/project/expose/light_poster.jpg'>
+<source src='img/project/expose/light.mp4'>
+</video>
+<p>
+Preview of the tool in use during development of the game
+<a href='tension.html'>Tension</a><span>.</span></p>
+</div>
+<p class='n-inline justify-mobile-only'>
+The <i>EXPOSE</i> system is a <strong>system</strong> I've developed that lets programmers easily
+give themselves and other disciplines, such as level designers and graphical designers,
+access to <strong>manipulate</strong> the value of a variable <strong>runtime</strong> through a <abbr title="Graphical User Interface">GUI</abbr>.
+</p>
+<br>
+<div class='n-toc n-wiki-border'>
+<span class='has-text-weight-semibold'>
+Table of Content
+</span>
+<ol class='ml-0'>
+<a href='#background'><li>
+Background
+</li></a>
+<a href='#usage'>
+<li>
+Usage
+</li>
+</a>
+<ol class='mb-0'>
+<a href='#usage-code'><li>
+Code
+</li></a>
+<a href='#usage-result'><li>
+Result
+</li></a>
+</ol>
+<a href='#see-also'><li>See also</li></a>
+</ol>
+</div>
+<div class='anchor' id='background'></div>
+<h2 class='title is-3'>
+<a href='#background'>#</a>
+Background
+</h2>
+<p class='n-inline justify-mobile-only'>
+During my time at
+<a aria-label='The Game Assembly' href='https://www.thegameassembly.com/' target='_blank'>The Game Assembly
+<i class='uil uil-external-link-alt'></i></a>
+I wanted my fellow programmers to be able to quickly give themselves and others access over their variables runtime and save their changes.
+In previous projects I'd been part of at the school, the way to store and load variables in a data-driven manner was through writing to <code>.json</code>-files by hand,
+and then reloading the entire game. This was tedious. There had to be an easier way I thought to myself.
+Rather than storing all modifiable variables in a <code>.json</code>-file and letting the file be the interface, I wanted it to be graphical.
+To achieve this I used the <em>Dear ImGui</em> library.
+<div class='block'></div>
+Even though the writing to and reading from the <code>.json</code>-file is automated, through an interface, which allows me
+to save the <abbr title="JavaScript Object Notation">JSON</abbr> in a minified form to save space,
+I chose to save it in pretty form.
+This ensures that merge conflicts can be solved easier by hand if needed.
+</p>
+<div class='anchor' id='usage'></div>
+<h2 class='title is-3'>
+<a href='#usage'>#</a>
+Usage
+</h2>
+<p class='justify-mobile-only'>
+The system can expose 5 different data types: <code>bool</code>, <code>float</code>, <code>float2</code>, <code>float3</code>, and <code>float4</code>.
+The main way to expose a variable is through the <code>EXPOSE</code> macro.
+This will automatically group variables in the same file together under a category named after the file.
+The macro is overloaded to support 4 different types of exposure: a quick way, a verbose way, a stylish way, and a level specific way.
+<ul>
+<li>The quick way is the minimal approach and allows for rapid prototyping.</li>
+<li>The verbose way allows the programmer to define a custom label for the variable in the GUI.</li>
+<li>The stylish way allows the programmer to chose a different way to represent the variable in the GUI.</li>
+<li>The level specific way allows the programmer to store separate values in the variable depending on which level is loaded.</li>
+</ul>
+</p>
+<p class='justify-mobile-only'>
+Since one can expose the same variable multiples times - i.e. in enemies - one must also unexpose the exposed variable it goes out of scope.
+This can be done using the <code>UNEXPOSE</code> macro as seen in the source file down below.
+<div class='block'></div>
+Down below in the
+<a href='#usage-code'><em>Code</em></a>
+section you can see how a programmer would leverage the system.
+</p>
+<div class='anchor' id='usage-code'></div>
+<h3 class='subtitle is-4'>
+<a href='#usage-code'>#</a>
+Code
+</h3>
+<span class='tag is-dark resist-darkmode' style='background:#282c34; border-bottom-left-radius: 0; border-bottom-right-radius: 0'>
+DemoClass.h
+</span>
+<pre class="cpp resist-darkmode">
+<span style="color:#c678dd;">#pragma</span> <span style="color:#c678dd;">once</span>
+<span\>
+<span style="color:#c678dd;">class</span> <span style="color:#4ec9b0;">DemoClass</span>
+{
+<span style="color:#c678dd;">private</span>:
+&#09;<span style="color:#c678dd;">float</span> <span style="color:#dadada;">mySpeed</span>;
+&#09;<span style="color:#c678dd;">float</span> <span style="color:#dadada;">myOtherSpeed</span>;
+&#09;<span style="color:#4ec9b0;">float3</span> <span style="color:#dadada;">myColor</span>;
+&#09;<span style="color:#4ec9b0;">float3</span> <span style="color:#dadada;">myLevelColor</span>;
+<span\>
+<span style="color:#c678dd;">public</span>:
+&#09;<span style="color:#dcdcaa;">DemoClass</span>();
+&#09;<span style="color:#dcdcaa;">~</span><span style="color:#dcdcaa;">DemoClass</span>();
+};
+</pre>
+<div class='block'></div>
+<span class='tag is-dark resist-darkmode' style='background:#282c34; border-bottom-left-radius: 0; border-bottom-right-radius: 0'>
+DemoClass.cpp
+</span>
+<pre class="cpp resist-darkmode">
+<span style="color:#c678dd;">#include</span> <span style="color:#e8c9bb;">&quot;</span><span style="color:#98c379;">DemoClass.h</span><span style="color:#e8c9bb;">&quot;</span>
+<span style="color:#c678dd;">#include</span> <span style="color:#e8c9bb;">&quot;</span><span style="color:#98c379;">Expose.h</span><span style="color:#e8c9bb;">&quot;</span>
+<span\>
+<span style="color:#4ec9b0;">DemoClass</span>::<span style="color:#dcdcaa;">DemoClass</span>()
+&#09;: <span style="color:#dadada;">mySpeed</span>(<span style="color:#d19a66;">1.0f</span>)
+&#09;, <span style="color:#dadada;">myOtherSpeed</span>(<span style="color:#d19a66;">100.0f</span>)
+{
+&#09;<span style="color:#7f848e;">// Quick expose</span>
+&#09;<span style="color:#beb7ff;">EXPOSE</span>(<span style="color:#dadada;">mySpeed</span>);
+<span\>
+&#09;<span style="color:#7f848e;">// Verbose expose</span>
+&#09;<span style="color:#beb7ff;">EXPOSE</span>(<span style="color:#dadada;">myOtherSpeed</span>, <span style="color:#e8c9bb;">&quot;</span><span style="color:#98c379;">Speed (cm/s)</span><span style="color:#e8c9bb;">&quot;</span>);
+<span\>
+&#09;<span style="color:#7f848e;">// Stylish expose</span>
+&#09;<span style="color:#beb7ff;">EXPOSE</span>(<span style="color:#dadada;">myColor</span>, <span style="color:#e8c9bb;">&quot;</span><span style="color:#98c379;">Ambient Color</span><span style="color:#e8c9bb;">&quot;</span>, <span style="color:#4ec9b0;">ExposeTag</span>::<span style="color:#b8d7a3;">ColorPicker</span>);
+<span\>
+&#09;<span style="color:#7f848e;">// Level specific expose</span>
+&#09;<span style="color:#c8c8c8;">std</span>::<span style="color:#4ec9b0;">string</span> <span style="color:#9cdcfe;">level</span> = <span style="color:#e8c9bb;">&quot;</span><span style="color:#98c379;">Demo_Level</span><span style="color:#e8c9bb;">&quot;</span>;
+&#09;<span style="color:#beb7ff;">EXPOSE</span>(<span style="color:#dadada;">myLevelColor</span>, <span style="color:#e8c9bb;">&quot;</span><span style="color:#98c379;">Ambient Color</span><span style="color:#e8c9bb;">&quot;</span>, <span style="color:#4ec9b0;">ExposeTag</span>::<span style="color:#b8d7a3;">ColorPicker</span>, <span style="color:#9cdcfe;">level</span>);
+}
+<span\>
+<span style="color:#4ec9b0;">DemoClass</span>::<span style="color:#dcdcaa;">~</span><span style="color:#dcdcaa;">DemoClass</span>()
+{
+&#09;<span style="color:#beb7ff;">UNEXPOSE</span>(<span style="color:#dadada;">mySpeed</span>);
+&#09;<span style="color:#beb7ff;">UNEXPOSE</span>(<span style="color:#dadada;">myOtherSpeed</span>);
+&#09;<span style="color:#beb7ff;">UNEXPOSE</span>(<span style="color:#dadada;">myColor</span>);
+&#09;<span style="color:#beb7ff;">UNEXPOSE</span>(<span style="color:#dadada;">myLevelColor</span>);
+}
+</pre>
+<div class='anchor' id='usage-result'></div>
+<h3 class='subtitle is-4'>
+<a href='#usage-result'>#</a>
+Result
+</h3>
+<p>
+With the code above, the system will yield the following result:
+</p>
+<div class='has-text-centered'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Animated picture showing the EXPOSE tool in action' data-img-src='img/project/expose/democlass.gif'>
+<br>
+<span>
+Animated picture showing the EXPOSE tool in action.
+</span>
+</div>
+</div>
+<div class='anchor' id='see-also'></div>
+<h2 class='title is-3'>
+<a href='#see-also'>#</a>
+See also
+</h2>
+<ul class='n-bulletlist'>
+<li>
+<a aria-label='Tension' href='tension.html'>
+Tension
+</a>
+</li>
+<li>
+<a aria-label='Volumetric Lighting at karlsmyr.dev' href='https://www.karlsmyr.dev/specialization' rel='noreferrer noopener' target='_blank'>
+Volumetric Lighting by Eric Karlsmyr
+<i class='uil uil-external-link-alt'></i>
+</a>
+</li>
+</ul>
+
+</aside>
+<hr>
+<a href='#'>
+<span class='icon'>
+<i class='uil uil-arrow-up'></i>
+</span>
+Return to the top of this page
+</a>
+<br>
+<a href='projects.html'>
+<span class='icon'>
+<i class='uil uil-arrow-left'></i>
+</span>
+Other projects
+</a>
+</div>
+</aside>
+</main>
+<div class='footer mt-auto invert-in-darkmode' id='footer'>
+<div class='container is-max-desktop'>
+<div class='columns'>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+<a aria-label='Home' href='./'>
+Home
+</a>
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a class='has-text-link' href='about.html'>
+About me
+</a>
+</li>
+<li>
+<a class='has-text-link' href='./#hightlights'>
+Highlights
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+<a aria-label='Projects' href='projects.html'>
+Projects
+</a>
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a class='has-text-link' href='variable-exposing.html'>
+Variable Exposing
+</a>
+</li>
+<li>
+<a class='has-text-link' href='island-generator.html'>
+Island Generator
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+External resources
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a aria-label='Resume' class='has-text-link' href='resume.pdf' target='_blank'>
+<i class='uil uil-file-download'></i>
+Resume
+<i class='uil uil-external-link-alt'></i>
+</a>
+</li>
+<li>
+<a aria-label='LinkedIn' class='has-text-link' href='https://se.linkedin.com/in/jesper-lundgren-420?trk=people-guest_people_search-card' rel='noreferrer noopener' target='_blank'>
+<i class='uil uil-linkedin'></i>
+LinkedIn
+<i class='uil uil-external-link-alt'></i>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+Contact
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a class='has-text-link' href='mailto:contact@noijig.net'>
+<i class='uil uil-envelope-alt'></i>
+contact@noijig.net
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+﻿<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/async-img.js"></script>
+</body>
+</html>
