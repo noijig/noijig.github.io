@@ -110,6 +110,7 @@ Variable Exposing
 </h1>
 <div class='n-wiki-content n-wiki-border is-hidden-tablet mb-1'>
 <video autoplay controls loop muted poster='img/project/expose/light_poster.jpg'>
+<source src='img/project/expose/light.webm'>
 <source src='img/project/expose/light.mp4'>
 </video>
 <p>
@@ -171,7 +172,7 @@ To achieve this I used the <em>Dear ImGui</em> library.
 <div class='block'></div>
 Even though the writing to and reading from the <code>.json</code>-file is automated, through an interface, which allows me
 to save the <abbr title="JavaScript Object Notation">JSON</abbr> in a minified form to save space,
-I chose to save it in pretty form.
+I chose to save it in pretty form which preserves whitespaces.
 This ensures that merge conflicts can be solved easier by hand if needed.
 </p>
 <div class='anchor' id='usage'></div>
@@ -192,7 +193,7 @@ The macro is overloaded to support 4 different types of exposure: a quick way, a
 </ul>
 </p>
 <p class='justify-mobile-only'>
-Since one can expose the same variable multiples times - i.e. in enemies - one must also unexpose the exposed variable it goes out of scope.
+Since one can expose the same variable multiples times - i.e. in enemies - one must also unexpose the exposed variable before it goes out of scope.
 This can be done using the <code>UNEXPOSE</code> macro as seen in the source file down below.
 <div class='block'></div>
 Down below in the
