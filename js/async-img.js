@@ -35,17 +35,12 @@
 
     let $vidoes = document.querySelectorAll("video");
     $vidoes.forEach(($video) => {
-
-        $video.addEventListener("webkitbeginfullscreen", () => {
-
-            alert("fullscreen start");
-
-        }, false);
-
-        $video.addEventListener("webkitendfullscreen", () => {
-
-            alert("fullscreen end");
-
-        }, false);
+        if (typeof($video.webkitEnterFullscreen) != "undefined") {
+            // This is for Android Stock.
+            $video.addEventListener("click", () => {
+                $video.play();
+                $video.webkitEnterFullscreen();
+            });
+        }
     });
 })();
