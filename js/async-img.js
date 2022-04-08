@@ -33,12 +33,18 @@
         });
     });
 
-    let $youtubeExpose = document.querySelectorAll("[data-youtube-uMP2tUkQ8WM]");
-    $youtubeExpose.forEach(($youtube) => {
-        $youtube.innerHTML = `
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uMP2tUkQ8WM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p>
-        Preview of the tool in use during development of the game
-        <a aria-label='Tension' href='tension.html'>Tension</a><span>.</span></p>`;
-    });
+    let $video = document.getElementsByTagName("video");
+    if ($video.length != 0 && typeof($video.webkitEnterFullscreen) != "undefined")
+    {
+        let $youtubeExpose = document.querySelectorAll("[data-youtube-uMP2tUkQ8WM]");
+        $youtubeExpose.forEach(($youtube) => {
+        $youtube.innerHTML =
+`<figure class="image is-5by3 m-0">
+<iframe class="has-ratio" width="560" height="315" src="https://www.youtube-nocookie.com/embed/uMP2tUkQ8WM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+<p>
+Preview of the tool in use during development of the game
+<a aria-label='Tension' href='tension.html'>Tension</a><span>.</span></p>`;
+        });
+    };
 })();
