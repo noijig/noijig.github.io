@@ -37,7 +37,8 @@
     $vidoes.forEach(($video) => {
         if (typeof($video.webkitEnterFullscreen) != "undefined") {
             // This is for Android Stock.
-            $video.addEventListener("click", () => {
+            $video.addEventListener("touchstart", () => {
+                alert("wtf");
                 $video.play();
                 $video.webkitEnterFullscreen();
             });
