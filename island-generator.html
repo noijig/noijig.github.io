@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<link crossorigin='anonymous' href='https://noijig.net/css/bulma.css' integrity='sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==' referrerpolicy='no-referrer' rel='stylesheet'>
+<link href='https://unicons.iconscout.com/release/v4.0.0/css/line.css' rel='stylesheet'>
+<link href='https://noijig.net/css/general.css' rel='stylesheet'>
+<link href='https://noijig.net/apple-touch-icon.png' rel='apple-touch-icon' sizes='180x180'>
+<link href='https://noijig.net/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
+<link href='https://noijig.net/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
+<link href='https://noijig.net/site.webmanifest' rel='manifest'>
+<!-- Html Meta Tags -->
+<title>Island Generator | Jesper Lundgren</title>
+<meta content='A procedurally generated Island generator with a web demo.' name='description'>
+<!-- Facebook Meta Tags -->
+<meta content='https://noijig.net/island-generator.html' property='og:url'>
+<meta content='website' property='og:type'>
+<meta content='Island Generator | Jesper Lundgren' property='og:title'>
+<meta content='A procedurally generated Island generator with a web demo.' property='og:description'>
+<meta content='https://noijig.net/img/thumbnail/island-generator.png' property='og:image'>
+<!-- Twitter Meta Tags -->
+<meta content='summary_large_image' name='twitter:card'>
+<meta content='noijig.net' property='twitter:domain'>
+<meta content='https://noijig.net/island-generator.html' property='twitter:url'>
+<meta content='Island Generator | Jesper Lundgren' name='twitter:title'>
+<meta content='A procedurally generated Island generator with a web demo.' name='twitter:description'>
+<meta content='https://noijig.net/img/thumbnail/island-generator.png' name='twitter:image'>
+</head>
+
+<body class="has-navbar-fixed-top">
+<nav aria-label='main navigation' class='navbar is-fixed-top is-light invert-in-darkmode'>
+<div class='navbar-brand'>
+<a class='navbar-item' href='https://noijig.net/about.html' title='Click to read about me'>
+<!-- /.image.n-navbar-image-figure.mr-4 -->
+<!-- /    .n-navbar-image.n-is-rounded -->
+<div class='tile is-vertical has-text-left'>
+<div class='tile'>
+Jesper Lundgren
+</div>
+<div class='tile is-italic is-size-7'>
+Engine & Tools
+</div>
+</div>
+</a>
+<button aria-controls='navmenu' aria-expanded='false' aria-label='hamburger menu' class='navbar-burger' data-target='navmenu' style='height: auto'>
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class='navbar-menu' id='navmenu'>
+<nav aria-label='dropdown navigation' class='navbar-start'>
+<a class='navbar-item' href='https://noijig.net/'>
+Home
+</a>
+<a class='navbar-item' href='https://noijig.net/about.html'>
+About
+</a>
+<div class='navbar-item has-dropdown is-hoverable'>
+<a class='n-navbar-item navbar-link is-arrowless' href='https://noijig.net/projects.html'>
+Projects
+</a>
+<div class='navbar-dropdown is-boxed'>
+<a class='navbar-item' href='https://noijig.net/variable-exposing.html'>
+Variable Exposing
+</a>
+<a class='has-text-weight-bold navbar-item' href='https://noijig.net/island-generator.html'>
+Island Generator
+</a>
+</div>
+</div>
+<noscript>
+<div class='notification is-warning'>
+This website will only show images if JavaScript is turned <strong>on</strong>
+</div>
+</noscript>
+</nav>
+<div class='navbar-end'>
+<a aria-label='Resume' class='navbar-item has-text-link' href='https://noijig.net/resume.pdf' target='_blank'>
+<span>
+Resume
+<i class='uil uil-external-link-alt'></i>
+</span>
+</a>
+<a aria-label='LinkedIn' class='navbar-item has-text-link' href='https://se.linkedin.com/in/jesper-lundgren-420?trk=people-guest_people_search-card' rel='noreferrer noopener' target='_blank'>
+<span>
+LinkedIn
+<i class='uil uil-external-link-alt'></i>
+</span>
+</a>
+</div>
+</div>
+</nav>
+
+<main id="filler" class="section is-medium invert-in-darkmode" aria-label="main content">
+<aside class="container">
+<div class='is-relative'>
+<a class='n-other-projects-link' href='projects.html'>
+<span class='icon'>
+<i class='uil uil-arrow-left'></i>
+</span>
+Other projects
+</a>
+<aside class='content'>
+<noscript>
+<div class='notification is-danger is-light'>
+This website will only show images if JavaScript is turned <strong>on</strong>
+</div>
+<div class='block'></div>
+</noscript>
+<h1 class='title is-2'>
+Island Generator
+</h1>
+Island Generator I made during my specialization course at The Game Assembly in Stockholm.
+<a href='#demo'>Click here to skip to the the web demo</a><span>.</span><br>
+<div class='n-toc n-wiki-border'>
+<span class='has-text-weight-semibold'>
+Table of Content
+</span>
+<ol class='ml-0'>
+<a href='#background'><li>
+Background
+</li></a>
+<a href='#island-creation'><li>
+Island Creation
+</li></a>
+<ol class='mb-0'>
+<a href='#generating-cells'><li>
+Generating cells
+</li></a>
+<a href='#assigning-biomes'><li>
+Assigning biomes
+</li></a>
+</ol>
+<a href='#demo'><li>Web Demo</li></a>
+<a href='#thoughts'><li>Thoughts</li></a>
+<a href='#gallery'><li>Gallery</li></a>
+</ol>
+</div>
+<div class='anchor' id='background'></div>
+<h2 class='title is-3'>
+<a href='#background'>#</a>
+Background
+</h2>
+<div class='notification is-info is-light'>
+This section is a work in progress and will be updated shortly.
+</div>
+<p>
+The backend is <strong>C++</strong> compiled to <strong>WebAssembly</strong> using the compiler toolchain
+<a aria-label='Homepage of emscripten' href='https://emscripten.org/' rel='noreferrer noopener' target='_blank' title='Homepage of emscripten'>emscripten
+<i class='uil uil-external-link-alt'></i></a>
+<span>.</span>
+<br>
+The frontend is <strong>JavaScript</strong> rendering graphics using the <strong>Canvas API</strong>.
+</p>
+<div class='anchor' id='island-creation'></div>
+<h2 class='title is-3'>
+<a href='#island-creation'>#</a>
+Island Creation
+</h2>
+Creating an island consists of two steps: generating cells, and assigning them biomes based on their attributes.
+<div class='anchor' id='generating-cells'></div>
+<h3 class='subtitle is-4'>
+<a href='#generating-cells'>#</a>
+Generating cells
+</h3>
+<p>
+I wanted my cells to be based on a <strong>Voronoi diagram</strong>. There exist several ways to construct such a diagram, one way is to implement
+<a aria-label='Wikipedia&#39;s page on Fortune&#39;s algorithm' href='https://en.wikipedia.org/wiki/Fortune%27s_algorithm' title='Wikipedia&#39;s page on Fortune&#39;s algorithm'>Fortune's algorithm</a><span>.</span><span></span>
+I chose an easier, yet slower, way and construct it with help of its dual graph, <strong>Delaunay triangulation</strong>, with my implementation of the <strong>Bowyer-Watson algorithm</strong>.
+The blue dots are randomly generated points and the black dots are the center of each triangle's circumcircle.
+To create a Voronoi diagram I then connect these center points of each triangle's circumcircles with each triangle's neighbours to create polygons.
+However, if a triangle's circumcircle's center point lies outside the bounds of the map, that point is disregarded and is not included in any polygon.
+Polygons that have less than 4 points are disregarded because I don't want too sharp cells.
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Delauney triangulation of 9 points' class='n-small-image' data-img-src='img/project/procgen/delauney_9.png'>
+<br>
+<span>
+Delauney triangulation of 9 points
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Delauney triangulation of 128 points' class='n-small-image' data-img-src='img/project/procgen/delauney_128.png'>
+<br>
+<span>
+Delauney triangulation of 128 points
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Generated Voronoi diagram' class='n-small-image' data-img-src='img/project/procgen/Voronoi_lloyd0.png'>
+<br>
+<span>
+Generated Voronoi diagram
+</span>
+</div></div>
+<p>
+The generated Voronoi diagram has all imaginable weird shapes that are inconsistent.
+To counter this I applied <strong>Lloyd's algorithm</strong> twice to get the cells more evenly spread out.
+Since it internally uses the same method for generating a Voronoi diagram, some cells are lost in the process due to polygon disregarding.
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Lloyd&#39;s algorithm applied once on a Voronoi diagram' class='n-small-image' data-img-src='img/project/procgen/Voronoi_lloyd1.png'>
+<br>
+<span>
+Lloyd's algorithm applied once
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Lloyd&#39;s algorithm applied twice on a Voronoi diagram' class='n-small-image' data-img-src='img/project/procgen/Voronoi_lloyd2.png'>
+<br>
+<span>
+Lloyd's algorithm applied twice
+</span>
+</div></div>
+<p>
+The outer cells can be quite sharp and unpleasing so those cells and their neighbours are excluded in the biome process.
+Scaling it up to 512 initial cells gives us a nice canvas to work with.
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Voronoi' class='n-small-image' data-img-src='img/project/procgen/ocean_cells.png'>
+<br>
+<span>
+Excluded cells are transparent
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Voronoi' class='n-small-image' data-img-src='img/project/procgen/empty_canvas_512.png'>
+<br>
+<span>
+Same island with 512 initial cells
+</span>
+</div></div>
+<div class='anchor' id='assigning-biomes'></div>
+<h3 class='subtitle is-4'>
+<a href='#assigning-biomes'>#</a>
+Assigning biomes
+</h3>
+<p>
+Each cell gets assigned a biome based on their respective height, humidity, and temperature.
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Height' class='n-small-image' data-img-src='img/project/procgen/height.png'>
+<br>
+<span>
+Height
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Humidity' class='n-small-image' data-img-src='img/project/procgen/humidity.png'>
+<br>
+<span>
+Humidity
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Temperature' class='n-small-image' data-img-src='img/project/procgen/temperature.png'>
+<br>
+<span>
+Temperature
+</span>
+</div></div>
+<p>
+To assign a biome based on these attributes I use two different <strong>Whittaker diagrams</strong> depending on their height.
+One where cells that have less than <code>0.5</code> height and one where those that have equal or greater than <code>0.5</code> height.
+The colours of these biomes are arbitrary and merely chosen by what colours I thought fitted together in a fantasy setting.
+The Whittaker diagrams are as following:
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Whittaker diagram over the biomes' class='n-small-image' data-img-src='img/project/procgen/whittaker.png'>
+<br>
+<span>
+Whittaker diagram over the biomes (height < 0.5)
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Whittaker diagram over the biomes' class='n-small-image' data-img-src='img/project/procgen/whittaker-height.png'>
+<br>
+<span>
+Whittaker diagram over the biomes (height >= 0.5)
+</span>
+</div></div>
+<p>
+This yields a nice island with plenty of biomes.
+</p>
+<p>
+There are exceptions to these rules.
+Cells that were not assigned a biome becomes <em>Ocean <span class="biome-square" style="background-color: #1E90FF">&nbsp;</span></em>.
+Cells that are neighbours to ocean cells become <em>Beach <span class="biome-square" style="background-color: #FFFFCC">&nbsp;</span></em>.
+Unless their height is above <code>0.75</code>, then they become <em>Cliffs <span class="biome-square" style="background-color: #B7B7B7">&nbsp;</span></em>.
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Voronoi' class='n-small-image' data-img-src='img/project/procgen/biomes.png'>
+<br>
+<span>
+Colorful island
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Voronoi' class='n-small-image' data-img-src='img/project/procgen/bigger_biomes.png'>
+<br>
+<span>
+Same island with 1024 initial cells
+</span>
+</div></div>
+<p>
+However, the island is bit like a square which doesn't give the impression that it's a natural occuring island.
+To make it more natural looking I rounded it a bit, added some small <strong>water bodies</strong>, and tiny off-shore islands.
+There is also a chance for a big water body to appear. This can be seen particularly well on an island generated with seed 7.
+</p>
+<div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Voronoi' class='n-small-image' data-img-src='img/project/procgen/puddles.png'>
+<br>
+<span>
+Rounded island
+</span>
+</div><div class='n-wiki-content n-wiki-border m-2'>
+<img alt='Voronoi' class='n-small-image' data-img-src='img/project/procgen/water_body.png'>
+<br>
+<span>
+Seed 7 with 2048 initial cells
+</span>
+</div></div>
+<p>
+Give it a try in the demo below!
+</p>
+<div class='anchor' id='demo'></div>
+<h2 class='title is-3'>
+<a href='#demo'>#</a>
+Web Demo
+</h2>
+<p class='hidden-target-anchor-text'>
+<a href='#'>
+<span class='icon'>
+<i class='uil uil-arrow-up'></i>
+</span>
+Return to the top of this page
+</a>
+</p>
+<div class='box'>
+<noscript>
+<div class='notification is-danger is-light'>
+This web demo requires the use of JavaScript. It seems that your browser does not support it or has it turned <strong>off</strong>.
+To be able to view this demo, either use a browser that supports JavaScript or turn it <strong>on</strong> and revisit this page.
+</div>
+</noscript>
+<div class='is-script' hidden></div>
+<div class="field">
+    <label for="generate-world-seed" class="label">Seed</label>
+    <div class="field has-addons">
+        <div class="control">
+            <button class="button" onclick="randomizeSeed()">Randomize</button>
+        </div>
+        <div class="control is-expanded">
+            <input type="number" id="generate-world-seed" value="0" class="input" placeholder="0">
+        </div>
+    </div>
+</div>
+<div class="field">
+    <label for="generate-world-seed" class="label">Initial Cells</label>
+    <div class="field has-addons">
+        <div class="control">
+            <span class="select">
+                <select onchange="setCellsInput(this)">
+                    <option data-value="256">Small</option>
+                    <option data-value="512" selected>Medium</option>
+                    <option data-value="1024">Big</option>
+                    <option data-value="2048">Bigger</option>
+                </select>
+            </span>
+        </div>
+        <div class="control is-expanded">
+            <input type="number" id="generate-world-points" value="512" class="input">
+        </div>
+    </div>
+</div>
+<div class="columns is-vcentered">
+    <div class="column is-narrow">
+        <button class="button is-success" id="generate-world-button">
+            Generate World
+        </button>
+    </div>
+    <div class="column">
+        <progress id="world-progress" class="progress is-success" value="0"></progress>
+    </div>
+</div>
+<hr>
+<div id="canvas-container" class="resist-darkmode">
+    <canvas id="canvas" height="800" width="800"></canvas>
+</div>
+<script>
+
+function setCellsInput(e) {
+    document.getElementById("generate-world-points").value = e[e.selectedIndex].getAttribute("data-value");
+}
+function randomizeSeed() {
+    document.getElementById("generate-world-seed").value = ~~(Math.random() * 1000000);
+}
+
+var biomeColors = [
+    "#1E90FF", // Ocean
+    "#FFFFCC", // Beach
+    "#ff0000",
+    "#660000",
+    "#4D4D4D",
+    "#006600",
+    "#0066CC",
+    "#333333",
+    "#FFD5B0",
+    "#DED3B1",
+    "#CF5E5A",
+    "#518C0D",
+    "#336600",
+    "#A1E65C",
+    "#8BBF6D",
+    "#004A00",
+    "#95DBAF",
+    "#E6D0DE",
+    "#A680B8",
+    "#785C85",
+    "#999999",
+    "#DAE8FC",
+    "#FFFFFF",
+    "#B7B7B7", // Cliff
+    "#774A2C"
+].map((hex) => { // Convert from "#HEX" to [R,G,B]
+    hex = hex.substr(1);
+    let dec = [];
+    for (
+        const arr = Array.from(hex);
+        arr.length;
+        dec.push(parseInt(arr.splice(0, 2).join(''), 16))
+    );
+    return dec;
+});
+
+var Module = {};
+var dataview;
+
+const ENDIAN = true;
+
+var cvs = document.getElementById("canvas");
+var ctx = cvs.getContext("2d");
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function Point(address)
+{
+    this.x = dataview.getFloat32(address, ENDIAN);
+    this.y = dataview.getFloat32(address + 4, ENDIAN);
+    return this;
+}
+
+function Cell(address)
+{
+    this.size = dataview.getInt32(address, ENDIAN);
+    this.mem = dataview.getInt32(address + 4, ENDIAN);
+    this.biome = dataview.getInt32(address + 8, ENDIAN);
+    this.middle = new Point(address + 12);
+    this.perlin = dataview.getFloat32(address + 20, ENDIAN);
+
+    this.render = (num) => {
+
+        let fillStyle = ctx.fillStyle;
+        let strokeStyle = ctx.strokeStyle;
+
+        if (this.biome != 0)
+        {
+            color = biomeColors[this.biome];
+        }
+        else
+        {
+            color = biomeColors[0];
+        }
+        color = `rgb(${color[0]},${color[1]},${color[2]})`;
+
+        ctx.beginPath();
+        let end = new Point(this.mem + (this.size-1) * 8);
+        ctx.moveTo(end.x, end.y);
+
+        for (let i = 0; i < this.size; i++)
+        {
+            let p = new Point(this.mem + i * 8);
+            ctx.lineTo(p.x, p.y);
+        }
+
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        if (this.biome != 0)
+            ctx.stroke();
+        ctx.fill();
+
+        ctx.fillStyle = fillStyle;
+        ctx.strokeStyle = strokeStyle;
+    }
+
+    return this;
+}
+
+function DoAllStuff($button)
+{
+    let $progress = document.getElementById("world-progress");
+    $progress.setAttribute("value", "");
+
+    let seed = document.getElementById("generate-world-seed").value;
+    let npoi = document.getElementById("generate-world-points").value;
+    Module._TerminateWorld();
+    let world = Module._GenerateWorld(npoi, seed) + 4;
+
+    // Get how many instructions in total;
+    let maxInstructions = _DoInstruction(-1) + 1;
+    $progress.setAttribute('max', maxInstructions);
+
+    let instruction = 0;
+    (function _loop(i) {
+        if (i >= maxInstructions)
+        {
+            $button.removeAttribute("disabled");
+            $button.classList.remove("is-loading");
+
+            DrawWorld(world);
+            return;
+        }
+        sleep(1).then(() => {
+            _DoInstruction(i);
+            $progress.value = i + 1;
+            _loop(i + 1);
+        });
+    })(0);
+    // Stuff happens here even before the loop has finished
+    ctx.fillStyle = "black";
+}
+
+const HandleButton = function(e)
+{
+    let $seed = document.getElementById("generate-world-seed");
+    let $npoi = document.getElementById("generate-world-points")
+    let seed = Math.abs($seed.value);
+    let npoi = Math.abs($npoi.value);
+    $seed.value = seed;
+    $npoi.value = npoi;
+
+    Module._TerminateWorld();
+    let world = Module._GenerateWorld(npoi, seed) + 4;
+
+    e.target.setAttribute("disabled", true);
+    e.target.classList.add("is-loading");
+    DoAllStuff(e.target);
+}
+function DrawWorld(world)
+{
+    ctx.clearRect(0, 0, 800, 800);
+    ctx.fillStyle = "dodgerBlue";
+    ctx.fillRect(0, 0, 800, 800);
+
+    dataview = new DataView(Module.HEAPU8.buffer);
+
+    let n_cells = dataview.getInt32(world + 16, ENDIAN);
+    let cell_0 = dataview.getInt32(world + 20, ENDIAN);
+
+    for (let index = 0; index < n_cells; index++) {
+        let cell = new Cell(cell_0 + index*(6 * 4));
+        cell.render(index);
+    }
+
+    ctx.font = "bold 24px Sans-Serif";
+    ctx.fillStyle = "rgba(255,255,255,0.6)";
+    ctx.strokeStyle = "rgba(0,0,0,0.6)";
+    ctx.textBaseline = "hanging";
+    let text = "Island generated at noijig.net";
+    ctx.fillText(text, 50, 750);
+    ctx.strokeText(text, 50, 750);
+}
+
+Module.onRuntimeInitialized = _ => {
+  document.getElementById("generate-world-button").addEventListener("click", HandleButton);
+};
+</script>
+<script src="cpp/cpp.js"></script>
+
+</div>
+<div class='anchor' id='thoughts'></div>
+<h2 class='title is-3'>
+<a href='#thoughts'>#</a>
+Thoughts
+</h2>
+<div class='notification is-info is-light'>
+This section is a work in progress and will be updated shortly.
+</div>
+<p>
+There are several cells that are gone to waste when applying lloyd's algoritm due to my Voronoi elimination tactics.
+</p>
+<p>
+I am very pleased with the results.
+</p>
+<p>
+My favourite island must be seed <code>1653732528</code> since it has a water body inside the island which gives off a luxurious and cozy vibe.
+</p>
+<div class='anchor' id='gallery'></div>
+<h2 class='title is-3'>
+<a href='#gallery'>#</a>
+Gallery
+</h2>
+<div class='has-text-centered'>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 100 with 100 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/100_100.png'>
+<br>
+<span>Generated by seed 100 with 100 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 1313 with 333 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/1313_333.png'>
+<br>
+<span>Generated by seed 1313 with 333 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 1653732528 with 512 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/1653732528_512.png'>
+<br>
+<span>Generated by seed 1653732528 with 512 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 200 with 200 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/200_200.png'>
+<br>
+<span>Generated by seed 200 with 200 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 363125 with 750 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/363125_750.png'>
+<br>
+<span>Generated by seed 363125 with 750 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 448960 with 1000 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/448960_1000.png'>
+<br>
+<span>Generated by seed 448960 with 1000 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 554396 with 1024 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/554396_1024.png'>
+<br>
+<span>Generated by seed 554396 with 1024 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 557373 with 1024 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/557373_1024.png'>
+<br>
+<span>Generated by seed 557373 with 1024 initial cells</span>
+</div>
+</div>
+<div class='is-inline-block m-3'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='Island generated by seed 7 with 2048 initial cells' class='n-small-image' data-img-src='img/project/procgen/gallery/7_2048.png'>
+<br>
+<span>Generated by seed 7 with 2048 initial cells</span>
+</div>
+</div>
+</div>
+
+</aside>
+<hr>
+<a href='#'>
+<span class='icon'>
+<i class='uil uil-arrow-up'></i>
+</span>
+Return to the top of this page
+</a>
+<br>
+<a href='projects.html'>
+<span class='icon'>
+<i class='uil uil-arrow-left'></i>
+</span>
+Other projects
+</a>
+</div>
+</aside>
+</main>
+<div class='footer mt-auto invert-in-darkmode' id='footer'>
+<div class='container is-max-desktop'>
+<div class='columns'>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+<a aria-label='Home' href='https://noijig.net/'>
+Home
+</a>
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a class='has-text-link' href='https://noijig.net/about.html'>
+About me
+</a>
+</li>
+<li>
+<a class='has-text-link' href='https://noijig.net/#hightlights'>
+Highlights
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+<a aria-label='Projects' href='https://noijig.net/projects.html'>
+Projects
+</a>
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a class='has-text-link' href='https://noijig.net/variable-exposing.html'>
+Variable Exposing
+</a>
+</li>
+<li>
+<a class='has-text-link' href='https://noijig.net/island-generator.html'>
+Island Generator
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+External resources
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a aria-label='Resume' class='has-text-link' href='https://noijig.net/resume.pdf' target='_blank'>
+<i class='uil uil-file-download'></i>
+Resume
+<i class='uil uil-external-link-alt'></i>
+</a>
+</li>
+<li>
+<a aria-label='LinkedIn' class='has-text-link' href='https://se.linkedin.com/in/jesper-lundgren-420?trk=people-guest_people_search-card' rel='noreferrer noopener' target='_blank'>
+<i class='uil uil-linkedin'></i>
+LinkedIn
+<i class='uil uil-external-link-alt'></i>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class='column is-one-quarter'>
+<p class='menu-label'>
+Contact
+</p>
+<ul class='menu-list is-size-7'>
+<li>
+<ul>
+<li>
+<a class='has-text-link' href='mailto:contact@noijig.net'>
+<i class='uil uil-envelope-alt'></i>
+contact@noijig.net
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<script src='https://noijig.net/js/touch.js' type='text/javascript'></script>
+<script src='https://noijig.net/js/async-img.js' type='text/javascript'></script>
+
+</body>
+</html>

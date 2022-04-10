@@ -221,14 +221,18 @@ body {
   }
 }
 
-.bring-to-top {
-  position: fixed;
-  font-size: 2em;
-  border-radius: 100%;
-  background-color: #282c34;
-  color: #f5f5f5;
-  display: table-cell;
-  width: 1.5em;
-  height: 1.5em;
-  text-align: center;
+.hidden-target-anchor-text {
+  display: none;
+}
+:target + * + .hidden-target-anchor-text {
+  display: block;
+}
+
+.biome-square {
+  display: inline-block;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 0.75em;
+  height: 0.75em;
+  overflow: hidden;
 }

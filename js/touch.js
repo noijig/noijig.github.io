@@ -6,7 +6,6 @@ const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.na
 // Check if there are any navbar burgers
 if ($navbarBurgers.length > 0) {
 
-  console.log("Has Burger");
   // Add a click event on each of them
   $navbarBurgers.forEach( el => {
     el.addEventListener('click', () => {

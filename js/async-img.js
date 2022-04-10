@@ -1,23 +1,9 @@
 (() => {
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    console.log("Checking for async images");
     let $images = document.querySelectorAll("[data-img-src]");
     $images.forEach(($image) => {
-        console.log("Loaded async image", $image);
         $image.removeAttribute("hidden");
-        /*/
-        sleep(5000).then(() => {
-            image.src = image.getAttribute("data-img-src");
-            image.removeAttribute("data-img-src");
-        })
-        /*/
         $image.src = $image.getAttribute("data-img-src");
         $image.removeAttribute("data-img-src");
-        //*/
     });
 
     let $isScript = document.querySelectorAll(".is-script");
