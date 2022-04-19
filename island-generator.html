@@ -31,9 +31,7 @@
 <body class="has-navbar-fixed-top">
 <nav aria-label='main navigation' class='navbar is-fixed-top is-light invert-in-darkmode'>
 <div class='navbar-brand'>
-<a class='navbar-item' href='https://noijig.net/about.html' title='Click to read about me'>
-<!-- /.image.n-navbar-image-figure.mr-4 -->
-<!-- /    .n-navbar-image.n-is-rounded -->
+<a class='navbar-item' href='https://noijig.net/#about' title='Click here to navigate to the homepage'>
 <div class='tile is-vertical has-text-left'>
 <div class='tile'>
 Jesper Lundgren
@@ -54,9 +52,6 @@ Engine & Tools
 <a class='navbar-item' href='https://noijig.net/'>
 Home
 </a>
-<a class='navbar-item' href='https://noijig.net/about.html'>
-About
-</a>
 <div class='navbar-item has-dropdown is-hoverable'>
 <a class='n-navbar-item navbar-link is-arrowless' href='https://noijig.net/projects.html'>
 Projects
@@ -68,10 +63,16 @@ Variable Exposing
 <a class='has-text-weight-bold navbar-item' href='https://noijig.net/island-generator.html'>
 Island Generator
 </a>
+<a class='navbar-item' href='https://noijig.net/spite-into-the-bog.html'>
+Spite: Into the Bog
+</a>
+<a class='navbar-item' href='https://noijig.net/tale-of-stavros.html'>
+Tale of Stavros
+</a>
 </div>
 </div>
 <noscript>
-<div class='notification is-warning'>
+<div class='notification is-danger is-light'>
 This website will only show images if JavaScript is turned <strong>on</strong>
 </div>
 </noscript>
@@ -134,7 +135,6 @@ Assigning biomes
 </li></a>
 </ol>
 <a href='#demo'><li>Web Demo</li></a>
-<a href='#thoughts'><li>Thoughts</li></a>
 <a href='#gallery'><li>Gallery</li></a>
 </ol>
 </div>
@@ -143,17 +143,18 @@ Assigning biomes
 <a href='#background'>#</a>
 Background
 </h2>
-<div class='notification is-info is-light'>
-This section is a work in progress and will be updated shortly.
-</div>
+<p>
+I am very fond of fantasy worlds and wanted to try to create my own little world.
+Creating an entire world from scratch would've been a <i>bit</i> too much to do so I settled for an island instead.
+<span class='mr-3'></span>
+It would be a fun challenge making the entire process work in a regular web browser, therefore I decided to embed it into the web.
+</p>
 <p>
 The backend is <strong>C++</strong> compiled to <strong>WebAssembly</strong> using the compiler toolchain
 <a aria-label='Homepage of emscripten' href='https://emscripten.org/' rel='noreferrer noopener' target='_blank' title='Homepage of emscripten'>emscripten
-<i class='uil uil-external-link-alt'></i></a>
-<span>.</span>
-<br>
-The frontend is <strong>JavaScript</strong> rendering graphics using the <strong>Canvas API</strong>.
-</p>
+<i class='uil uil-external-link-alt'></i></a><span>
+, and the frontend is <strong>JavaScript</strong> rendering graphics using the <strong>Canvas API</strong>.
+</span></p>
 <div class='anchor' id='island-creation'></div>
 <h2 class='title is-3'>
 <a href='#island-creation'>#</a>
@@ -167,7 +168,8 @@ Generating cells
 </h3>
 <p>
 I wanted my cells to be based on a <strong>Voronoi diagram</strong>. There exist several ways to construct such a diagram, one way is to implement
-<a aria-label='Wikipedia&#39;s page on Fortune&#39;s algorithm' href='https://en.wikipedia.org/wiki/Fortune%27s_algorithm' title='Wikipedia&#39;s page on Fortune&#39;s algorithm'>Fortune's algorithm</a><span>.</span><span></span>
+<a aria-label='Wikipedia&#39;s page on Fortune&#39;s algorithm' href='https://en.wikipedia.org/wiki/Fortune%27s_algorithm' rel='noreferrer noopener' target='_blank' title='Wikipedia&#39;s page on Fortune&#39;s algorithm'>Fortune's algorithm
+<i class='uil uil-external-link-alt'></i></a><span>.</span><span></span>
 I chose an easier, yet slower, way and construct it with help of its dual graph, <strong>Delaunay triangulation</strong>, with my implementation of the <strong>Bowyer-Watson algorithm</strong>.
 The blue dots are randomly generated points and the black dots are the center of each triangle's circumcircle.
 To create a Voronoi diagram I then connect these center points of each triangle's circumcircles with each triangle's neighbours to create polygons.
@@ -235,6 +237,7 @@ Assigning biomes
 </h3>
 <p>
 Each cell gets assigned a biome based on their respective height, humidity, and temperature.
+These attributes are calculated through Perlin noise with different scaling.
 </p>
 <div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
 <img alt='Height' class='n-small-image' data-img-src='img/project/procgen/height.png'>
@@ -297,8 +300,8 @@ Same island with 1024 initial cells
 </span>
 </div></div>
 <p>
-However, the island is bit like a square which doesn't give the impression that it's a natural occuring island.
-To make it more natural looking I rounded it a bit, added some small <strong>water bodies</strong>, and tiny off-shore islands.
+However, the island is a bit like a square which doesn't give the impression that it's a natural occurring island.
+To make it more natural-looking I rounded it a bit, added some small <strong>water bodies</strong>, and tiny offshore islands.
 There is also a chance for a big water body to appear. This can be seen particularly well on an island generated with seed 7.
 </p>
 <div class='columns is-centered mb-2 has-text-centered'><div class='n-wiki-content n-wiki-border m-2'>
@@ -575,23 +578,6 @@ Module.onRuntimeInitialized = _ => {
 <script src="cpp/cpp.js"></script>
 
 </div>
-<div class='anchor' id='thoughts'></div>
-<h2 class='title is-3'>
-<a href='#thoughts'>#</a>
-Thoughts
-</h2>
-<div class='notification is-info is-light'>
-This section is a work in progress and will be updated shortly.
-</div>
-<p>
-There are several cells that are gone to waste when applying lloyd's algoritm due to my Voronoi elimination tactics.
-</p>
-<p>
-I am very pleased with the results.
-</p>
-<p>
-My favourite island must be seed <code>1653732528</code> since it has a water body inside the island which gives off a luxurious and cozy vibe.
-</p>
 <div class='anchor' id='gallery'></div>
 <h2 class='title is-3'>
 <a href='#gallery'>#</a>
@@ -694,12 +680,12 @@ Home
 <li>
 <ul>
 <li>
-<a class='has-text-link' href='https://noijig.net/about.html'>
-About me
+<a class='has-text-link' href='https://noijig.net/#about'>
+About
 </a>
 </li>
 <li>
-<a class='has-text-link' href='https://noijig.net/#hightlights'>
+<a class='has-text-link' href='https://noijig.net/#highlights'>
 Highlights
 </a>
 </li>
@@ -724,6 +710,16 @@ Variable Exposing
 <li>
 <a class='has-text-link' href='https://noijig.net/island-generator.html'>
 Island Generator
+</a>
+</li>
+<li>
+<a class='has-text-link' href='https://noijig.net/spite-into-the-bog.html'>
+Spite: Into the Bog
+</a>
+</li>
+<li>
+<a class='has-text-link' href='https://noijig.net/tale-of-stavros.html'>
+Tale of Stavros
 </a>
 </li>
 </ul>
