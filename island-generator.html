@@ -172,7 +172,7 @@ I wanted my cells to be based on a <strong>Voronoi diagram</strong>. There exist
 <i class='uil uil-external-link-alt'></i></a><span>.</span><span></span>
 I chose an easier, yet slower, way and construct it with help of its dual graph, <strong>Delaunay triangulation</strong>, with my implementation of the <strong>Bowyer-Watson algorithm</strong>.
 The blue dots are randomly generated points and the black dots are the center of each triangle's circumcircle.
-To create a Voronoi diagram I then connect these center points of each triangle's circumcircles with each triangle's neighbours to create polygons.
+To create a Voronoi diagram I then connect these center points of each triangle's circumcircles with each triangle's neighbours' to create polygons.
 However, if a triangle's circumcircle's center point lies outside the bounds of the map, that point is disregarded and is not included in any polygon.
 Polygons that have less than 4 points are disregarded because I don't want too sharp cells.
 </p>
