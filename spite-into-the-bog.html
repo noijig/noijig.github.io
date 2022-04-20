@@ -63,11 +63,11 @@ Variable Exposing
 <a class='navbar-item' href='https://noijig.net/island-generator.html'>
 Island Generator
 </a>
-<a class='has-text-weight-bold navbar-item' href='https://noijig.net/spite-into-the-bog.html'>
-Spite: Into the Bog
-</a>
 <a class='navbar-item' href='https://noijig.net/tale-of-stavros.html'>
 Tale of Stavros
+</a>
+<a class='has-text-weight-bold navbar-item' href='https://noijig.net/spite-into-the-bog.html'>
+Spite: Into the Bog
 </a>
 </div>
 </div>
@@ -114,7 +114,7 @@ This website will only show images if JavaScript is turned <strong>on</strong>
 Spite: Into the Bog
 </h1>
 <blockquote class='is-italic'>
-On a mission to save the people from the malign swamp magic; Pontius is sent into the bog to clense the evil, atone for past sins and reconcile with his god.
+On a mission to save the people from the malign swamp magic; Pontius is sent into the bog to cleanse the evil, atone for past sins and reconcile with his god.
 </blockquote>
 <div class='columns is-flex-direction-row-reverse'>
 <div class='column has-text-centered'>
@@ -199,9 +199,18 @@ Table of Content
 </span>
 <ol>
 <a href='#torch'>
-<li>Flickering Torch</li>
+<li>Flickering torch light</li>
 </a>
-<a href='#particle-editor'><li>Particle Editor</li></a>
+<a href='#particles'><li>Particles</li></a>
+<a href='#particle-editor'><li>Particle editor</li></a>
+<a href='#technical'>
+<li>Non-graphical work</li>
+</a>
+<ol class='mb-0'>
+<a href='#entity-component-system'><li>Enity Component System</li></a>
+<a href='#collision-management'><li>Collision Management</li></a>
+<a href='#level-loading-pipeline'><li>Level Loading Pipeline</li></a>
+</ol>
 </ol>
 </div>
 </div>
@@ -209,10 +218,10 @@ Table of Content
 <div class='anchor' id='torch'></div>
 <h2 class='title is-3'>
 <a href='#torch'>#</a>
-Flickering Torch
+Flickering torch light
 </h2>
 <p>
-To make the game feel more alive I made the torches in the game flicker.
+To make the game feel more alive I made the torches' light in the game flicker.
 </p>
 <div class='has-text-centered'>
 <div class='n-wiki-content n-wiki-border'>
@@ -223,6 +232,23 @@ A flickering torch.
 </span>
 </div>
 </div>
+<div class='anchor' id='particles'></div>
+<h2 class='title is-3'>
+<a href='#particles'>#</a>
+Particles
+</h2>
+<p>
+The particle pipeline is something I worked on during this project.
+<div class='has-text-centered'>
+<div class='n-wiki-content n-wiki-border'>
+<img alt='White circles used as particles' data-img-src='img/project/spite/particle.gif'>
+<br>
+<span>
+White circles used as particles.
+</span>
+</div>
+</div>
+</p>
 <div class='anchor' id='particle-editor'></div>
 <h2 class='title is-3'>
 <a href='#particle-editor'>#</a>
@@ -233,13 +259,55 @@ I created a general particle editor to give artists control to create particles 
 The settings for the torch in the above section is displayed in the image below.
 <div class='has-text-centered'>
 <div class='n-wiki-content n-wiki-border'>
-<img alt=' Interface of the particle editor' data-img-src='img/project/spite/particle_editor.png'>
+<img alt='Interface of the particle editor' data-img-src='img/project/spite/particle_editor.png'>
 <br>
 <span>
 Interface of the particle editor.
 </span>
 </div>
 </div>
+</p>
+<div class='anchor' id='technical'></div>
+<h2 class='title is-3'>
+<a href='#technical'>#</a>
+Non-graphical work
+</h2>
+<p>
+I mostly worked behind the scenes in this project making little to no work that can be represented in images.
+I hope this page can be found interesting nonetheless.
+</p>
+<div class='anchor' id='entity-component-system'></div>
+<h3 class='title is4-4'>
+<a href='#entity-component-system'>#</a>
+Enity Component System
+</h3>
+<p>
+As a learning experience and performance boost I developed an <strong>Entity Component System</strong>.
+This lead to fewer cache misses and an increase in performance.
+</p>
+<div class='anchor' id='collision-management'></div>
+<h3 class='title is4-4'>
+<a href='#collision-management'>#</a>
+Collision Management
+</h3>
+<p>
+Every game requires collison of some sort. I decided to use simple sphere collision in this project since it is cheap and it suited our needs.
+Programmers can easily assign colliders to entities and also register which type of triggers they want to be able to interact with.
+Using this system it sped up the workflow of creating attacks for enemies as all we had to do was to assign a collider size and register the
+attacks the entity should be able to collide with.
+</p>
+<div class='anchor' id='level-loading-pipeline'></div>
+<h3 class='title is4-4'>
+<a href='#level-loading-pipeline'>#</a>
+Level Loading Pipeline
+</h3>
+<p>
+Our level editor choice was Unity3D.
+This meant that the levels created in Unity had to be recreated in our engine.
+I wanted the pipeline to be as easy to use as possible for other people to work with.
+In order to achieve this I made a serializer <strong>script component</strong> in Unity that serializes all objects into a single <code>.json</code>-file with the push of a button.
+This includes basic information such as position, rotation, tags, name, but also specific component information such as values in a light component.
+Inside our custom engine I worked on deserializing the information with <em>RapidJSON</em>, a <abbr title="JavaScript Object Notation">JSON</abbr> parser for C++.
 </p>
 
 </aside>
@@ -306,13 +374,13 @@ Island Generator
 </a>
 </li>
 <li>
-<a class='has-text-link' href='https://noijig.net/spite-into-the-bog.html'>
-Spite: Into the Bog
+<a class='has-text-link' href='https://noijig.net/tale-of-stavros.html'>
+Tale of Stavros
 </a>
 </li>
 <li>
-<a class='has-text-link' href='https://noijig.net/tale-of-stavros.html'>
-Tale of Stavros
+<a class='has-text-link' href='https://noijig.net/spite-into-the-bog.html'>
+Spite: Into the Bog
 </a>
 </li>
 </ul>
